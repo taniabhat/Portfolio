@@ -224,11 +224,11 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square glass-card p-4 relative z-10 overflow-hidden group/img cursor-pointer">
+            <div className="aspect-square glass-card p-4 relative z-10 overflow-hidden group cursor-pointer">
               <img
                 src="https://i.ibb.co/h1Yxmq2K/Whats-App-Image-2026-03-20-at-00-24-49.jpg"
                 alt="Tania"
-                className="w-full h-full object-cover rounded-xl grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-700"
+                className="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -678,7 +678,7 @@ const Certificates = () => {
       date: "Sep 2025",
       link: "https://www.linkedin.com/posts/taniabhatt_ibm-skillsbuild-activity-7376636093707784192-qERQ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
       icon: BrainCircuit,
-      color: "accent-primary"
+      textColor: "text-accent-primary"
     },
     {
       title: "Data Science Professional",
@@ -686,7 +686,7 @@ const Certificates = () => {
       date: "Sep 2025",
       link: "https://www.linkedin.com/posts/taniabhatt_data-science-professional-activity-7370844615928885248-3LEj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
       icon: Database,
-      color: "accent-secondary"
+      textColor: "text-accent-secondary"
     },
     {
       title: "Robotics Process Automation",
@@ -694,7 +694,7 @@ const Certificates = () => {
       date: "Jun 2025",
       link: "https://www.linkedin.com/posts/taniabhatt_infosys-springboard-virtualinternship-activity-7368026757502861313-e2_D/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
       icon: Cpu,
-      color: "accent-cyan"
+      textColor: "text-accent-cyan"
     }
   ];
 
@@ -721,11 +721,11 @@ const Certificates = () => {
               </div>
 
               <div className="relative z-10">
-                <div className={`mb-6 p-3 bg-white/5 rounded-xl w-fit group-hover:scale-110 transition-transform`}>
-                  <cert.icon size={28} className={`text-${cert.color}`} />
+                <div className="mb-6 p-3 bg-white/5 rounded-xl w-fit group-hover:scale-110 transition-transform">
+                  <cert.icon size={28} className={cert.textColor} />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{cert.title}</h3>
-                <p className={`text-${cert.color} text-sm font-medium mb-1`}>{cert.org}</p>
+                <p className={`${cert.textColor} text-sm font-medium mb-1`}>{cert.org}</p>
                 <p className="text-xs text-white/40 font-mono mb-6">Completed: {cert.date}</p>
 
                 <a
@@ -734,7 +734,7 @@ const Certificates = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 hover:bg-white/10 rounded-full text-sm font-medium transition-all group/link"
                 >
-                  <Award size={16} className={`text-${cert.color}`} />
+                  <Award size={16} className={cert.textColor} />
                   Certificate
                   <ExternalLink size={14} className="opacity-50 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all" />
                 </a>
