@@ -345,8 +345,8 @@ const Projects = () => {
       tech: ["Python", "NLP (LLMs)", "Computer Vision", "Firebase/Firestore", "TensorFlow/PyTorch", "ASR/TTS"],
       details: [
         "Developed a multilingual AI assistant for personalized crop guidance, activity tracking, and context-aware farm alerts.",
-        "Building real-time AI video diagnostics and offline advisory support for low-connectivity regions.",
-        "Integrating Krishi Bhavan data, market trends, and disaster alerts for hyper-local recommendations."
+        "Built a real-time AI video diagnostics and offline advisory support for low-connectivity regions.",
+        "Integrated Krishi Bhavan data, market trends, and disaster alerts for hyper-local recommendations."
       ],
       image: "https://i.ibb.co/KpS4M4Hg/Screenshot-2026-03-20-112804.png",
       color: "accent-primary",
