@@ -117,7 +117,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <a href="https://drive.google.com/drive/folders/14IG62_ts1vQ1nDe7yW5Mia7nWqXmS-sN?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent-primary font-medium">
+              <a href="https://drive.google.com/file/d/1yTQun6mPrNJ1wqcPIkXjWrZ2zDsOSBNR/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent-primary font-medium">
                 <FileText size={20} /> Download Resume
               </a>
             </div>
