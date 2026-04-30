@@ -339,6 +339,36 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Unsupervised Waste Resource Loop Management System",
+      tagline: "Self-Improving Resource Cycle System",
+      description: "An unsupervised learning-based system to analyze waste patterns and convert waste into reusable resource cycles.",
+      tech: ["Python", "Scikit-learn", "TensorFlow", "IoT Sensors", "OpenCV", "FastAPI", "MongoDB", "Pandas", "NumPy"],
+      details: [
+        "Developing an unsupervised learning–based system to convert waste into reusable resource cycles.",
+        "Analyzing waste patterns to reduce landfill dependency through efficient recycling and reuse.",
+        "Integrating IoT data with adaptive ML models for real-time, self-improving monitoring."
+      ],
+      image: "/uwrms_dashboard.png",
+      color: "accent-cyan",
+      date: "Mar 2026-Present",
+      github: "https://github.com/taniabhat/Circular-Waste-Optimization/tree/main/uwrms-dashboard"
+    },
+    {
+      title: "Way.farer – Your Travel Booking Platform",
+      tagline: "Luxury and Adventure Packages",
+      description: "A comprehensive travel web application that allows users to browse, customize, and book luxury and adventure packages.",
+      tech: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "GSAP", "Axios"],
+      details: [
+        "Created a comprehensive travel web application that allows users to browse, customize, and book luxury and adventure packages.",
+        "Developed a responsive React frontend with fluid animations and seamless navigation to improve user experience.",
+        "Authentication, booking workflows, and automated email confirmations were integrated into secure backend APIs."
+      ],
+      image: "/wayfarer_travel.png",
+      color: "accent-primary",
+      date: "Mar 2026",
+      github: "https://github.com/taniabhat/Travel"
+    },
+    {
       title: "Karshika Sakhi",
       tagline: "AI-Powered Personalized Farming Companion",
       description: "A comprehensive solution for farmers leveraging NLP for advisory and Computer Vision for real-time crop diagnostics.",
