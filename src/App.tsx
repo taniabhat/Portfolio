@@ -363,7 +363,7 @@ const Projects = () => {
         "Developed a responsive React frontend with fluid animations and seamless navigation to improve user experience.",
         "Authentication, booking workflows, and automated email confirmations were integrated into secure backend APIs."
       ],
-      image: "/wayfarer_travel.png",
+      image: "https://i.ibb.co/mFY3jwP8/Screenshot-2026-04-30-114849.png",
       color: "accent-primary",
       date: "Mar 2026",
       github: "https://github.com/taniabhat/Travel"
