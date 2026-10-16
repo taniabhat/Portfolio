@@ -1095,6 +1095,30 @@ const Certificates = () => {
       link: "https://www.linkedin.com/feed/update/urn:li:activity:7474879950735499264/",
       icon: Terminal,
       textColor: "text-accent-secondary"
+    },
+    {
+      title: "Artificial Intelligence Fundamentals",
+      org: "IBM SkillsBuild",
+      date: "Sep 2025",
+      link: "https://www.linkedin.com/posts/taniabhatt_ibm-skillsbuild-activity-7376636093707784192-qERQ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
+      icon: BrainCircuit,
+      textColor: "text-accent-cyan"
+    },
+    {
+      title: "Data Science Professional",
+      org: "Oracle",
+      date: "Sep 2025",
+      link: "https://www.linkedin.com/posts/taniabhatt_data-science-professional-activity-7370844615928885248-3LEj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
+      icon: Database,
+      textColor: "text-accent-primary"
+    },
+    {
+      title: "Robotics Process Automation",
+      org: "Infosys Springboard",
+      date: "Jun 2025",
+      link: "https://www.linkedin.com/posts/taniabhatt_infosys-springboard-virtualinternship-activity-7368026757502861313-e2_D/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
+      icon: Cpu,
+      textColor: "text-accent-secondary"
     }
   ];
 
@@ -1106,7 +1130,7 @@ const Certificates = () => {
           <p className="text-white/50 max-w-xl mx-auto">Industry-recognized certifications validating my expertise.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, i) => (
             <motion.div
               key={cert.title}
