@@ -557,32 +557,99 @@ const Projects = () => {
 };
 
 const Experience = () => {
+  const experiences = [
+    {
+      role: "Freelance Python Web Developer",
+      company: "",
+      period: "2023 - Present",
+      description: "Specializing in building robust web applications and automation tools for diverse clients.",
+      points: [
+        "Developed custom Flask-based web applications with complex database integrations.",
+        "Architected and implemented secure CRUD systems for data-driven platforms.",
+        "Delivered end-to-end projects from conceptualization to deployment."
+      ],
+      link: null,
+      linkText: "",
+      color: "bg-accent-primary"
+    },
+    {
+      role: "Community Manager Intern",
+      company: "CollegeDunia Web Pvt. Ltd.",
+      period: "Sep 2025",
+      description: "",
+      points: [
+        "Coordinated community initiatives and analyzed user feedback to improve engagement, satisfaction, and overall community experience."
+      ],
+      link: "https://www.linkedin.com/posts/taniabhatt_collegedunia-activity-7371220090215653377-fDsz",
+      linkText: "LinkedIn Post",
+      color: "bg-accent-secondary"
+    },
+    {
+      role: "Volunteer",
+      company: "Rural Development Association",
+      period: "Jun 2024",
+      description: "",
+      points: [
+        "Collaborated with the association to understand requirements, organize content, and deliver a user-friendly web experience."
+      ],
+      link: "https://drive.google.com/file/d/11jVSOhc2sVSbFW1nM0VVHHhzXksk990T/view",
+      linkText: "Certificate",
+      color: "bg-accent-cyan"
+    }
+  ];
+
   return (
     <section id="experience" className="py-24 bg-white/[0.02]">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-center">Professional <span className="text-accent-secondary">Journey</span></h2>
 
         <div className="space-y-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative pl-8 border-l border-white/10"
-          >
-            <div className="absolute left-[-5px] top-0 w-[10px] h-[10px] bg-accent-primary rounded-full neon-glow" />
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-              <h3 className="text-2xl font-bold">Freelance Python Web Developer</h3>
-              <span className="text-sm font-mono text-accent-cyan">2023 - Present</span>
-            </div>
-            <p className="text-white/60 mb-4">
-              Specializing in building robust web applications and automation tools for diverse clients.
-            </p>
-            <ul className="space-y-2 text-sm text-white/80">
-              <li className="flex gap-2"><ChevronRight size={16} className="text-accent-primary shrink-0" /> Developed custom Flask-based web applications with complex database integrations.</li>
-              <li className="flex gap-2"><ChevronRight size={16} className="text-accent-primary shrink-0" /> Architected and implemented secure CRUD systems for data-driven platforms.</li>
-              <li className="flex gap-2"><ChevronRight size={16} className="text-accent-primary shrink-0" /> Delivered end-to-end projects from conceptualization to deployment.</li>
-            </ul>
-          </motion.div>
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={exp.role + i}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="relative pl-8 border-l border-white/10"
+            >
+              <div className={`absolute left-[-5px] top-0 w-[10px] h-[10px] ${exp.color} rounded-full neon-glow`} />
+              <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-2">
+                <div>
+                  <h3 className="text-2xl font-bold">{exp.role}</h3>
+                  {exp.company && (
+                    <div className="flex flex-wrap items-center gap-3 mt-1 text-sm">
+                      <span className="text-accent-cyan font-medium">{exp.company}</span>
+                      {exp.link && (
+                        <a
+                          href={exp.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono text-white/60 hover:text-white bg-white/5 hover:bg-white/10 px-2.5 py-1 rounded-full border border-white/10 hover:border-white/30 transition-all"
+                        >
+                          <ExternalLink size={12} /> {exp.linkText}
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <span className="text-sm font-mono text-accent-cyan whitespace-nowrap">{exp.period}</span>
+              </div>
+              {exp.description && (
+                <p className="text-white/60 mb-4">
+                  {exp.description}
+                </p>
+              )}
+              <ul className="space-y-2 text-sm text-white/80">
+                {exp.points.map((point, idx) => (
+                  <li key={idx} className="flex gap-2">
+                    <ChevronRight size={16} className="text-accent-primary shrink-0 mt-0.5" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
