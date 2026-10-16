@@ -23,7 +23,12 @@ import {
   ChevronDown,
   Menu,
   X,
-  Send
+  Send,
+  Trophy,
+  Flame,
+  TrendingUp,
+  Sparkles,
+  CheckCircle2
 } from 'lucide-react';
 
 // --- Components ---
@@ -81,7 +86,7 @@ const Navbar = () => {
             transition={{ delay: 0.5 }}
           >
             <a
-              href="https://drive.google.com/file/d/1yTQun6mPrNJ1wqcPIkXjWrZ2zDsOSBNR/view?usp=sharing"
+              href="https://drive.google.com/file/d/1PiAJp7awAGJ4JmatCVQJYL1pXjOegWTC/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 glass-card hover:bg-white/10 transition-all text-sm font-medium flex items-center gap-2"
@@ -117,7 +122,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <a href="https://drive.google.com/file/d/1yTQun6mPrNJ1wqcPIkXjWrZ2zDsOSBNR/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent-primary font-medium">
+              <a href="https://drive.google.com/file/d/1PiAJp7awAGJ4JmatCVQJYL1pXjOegWTC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent-primary font-medium">
                 <FileText size={20} /> Download Resume
               </a>
             </div>
@@ -657,96 +662,416 @@ const Experience = () => {
 };
 
 const CodingProfiles = () => {
-  const profiles = [
-    {
-      name: "LeetCode",
-      link: "https://leetcode.com/u/Tania_001/",
-      color: "#FFA116",
-      stats: [
-        { label: "Problems Solved", value: "200" },
-        { label: "Easy", value: "70/932" },
-        { label: "Medium", value: "107/2027" },
-        { label: "Hard", value: "23/915" },
-      ],
-      highlight: "200/3874 Solved",
-    },
-    {
-      name: "GeeksforGeeks",
-      link: "https://www.geeksforgeeks.org/profile/taniabhat2017?tab=activity",
-      color: "#2F8D46",
-      stats: [
-        { label: "Coding Score", value: "166" },
-        { label: "Problems Solved", value: "56" },
-        { label: "Institute Rank", value: "7705" },
-      ],
-      highlight: "166 Coding Score",
-    },
-    {
-      name: "Coding Ninjas",
-      link: "https://www.naukri.com/code360/profile/areyoutania",
-      color: "#F97316",
-      stats: [
-        { label: "Problems", value: "113" },
-        { label: "Coding", value: "89" },
-        { label: "MCQ", value: "24" },
-      ],
-      highlight: "113 Problems",
-    },
-  ];
+  const [activeTabLC, setActiveTabLC] = useState<'problems' | 'contest'>('problems');
+  const [activeTabGFG, setActiveTabGFG] = useState<'problems' | 'rank'>('problems');
 
   return (
     <section id="coding-profiles" className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Coding <span className="text-accent-primary">Profiles</span></h2>
-          <p className="text-white/50 max-w-xl mx-auto">Consistent problem solving across multiple competitive programming platforms.</p>
+          <p className="text-white/50 max-w-xl mx-auto">Consistent problem solving across competitive programming platforms.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {profiles.map((profile, i) => (
-            <motion.a
-              key={profile.name}
-              href={profile.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card p-6 group hover:border-white/20 transition-all relative overflow-hidden block"
-            >
-              {/* Color bar at top */}
-              <div className="absolute top-0 left-0 right-0 h-1 opacity-60 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: profile.color }} />
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* LeetCode Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="glass-card p-6 md:p-8 relative overflow-hidden group hover:border-[#FFA116]/40 transition-all flex flex-col"
+          >
+            {/* Top Color Accent */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#FFA116]" />
+            <div className="absolute -top-24 -right-24 w-60 h-60 bg-[#FFA116]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#FFA116]/15 transition-all" />
 
-              {/* Platform Name */}
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold">{profile.name}</h3>
-                <ExternalLink size={16} className="text-white/30 group-hover:text-white/70 transition-colors" />
-              </div>
-
-              {/* Highlight stat */}
-              <div className="mb-5">
-                <span className="text-2xl font-display font-bold" style={{ color: profile.color }}>
-                  {profile.highlight}
-                </span>
-              </div>
-
-              {/* Stats grid */}
-              {profile.stats.length > 0 && (
-                <div className="space-y-2 pt-4 border-t border-white/10">
-                  {profile.stats.map((stat) => (
-                    <div key={stat.label} className="flex justify-between items-center text-sm">
-                      <span className="text-white/50">{stat.label}</span>
-                      <span className="font-mono font-bold text-white/80">{stat.value}</span>
-                    </div>
-                  ))}
+            {/* Header: Platform & External Link */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFA116]/10 border border-[#FFA116]/20 flex items-center justify-center font-bold text-[#FFA116] text-xl shadow-inner">
+                  LC
                 </div>
-              )}
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-2xl font-bold text-white">LeetCode</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-[#FFA116]/15 text-[#FFA116] font-mono font-medium">@Tania_001</span>
+                  </div>
+                  <p className="text-xs text-white/40 font-mono mt-0.5">Global Rank: #495,084</p>
+                </div>
+              </div>
 
-              {/* Hover glow */}
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity" style={{ backgroundColor: profile.color }} />
-            </motion.a>
-          ))}
+              <a
+                href="https://leetcode.com/u/Tania_001/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold bg-[#FFA116]/10 hover:bg-[#FFA116] text-[#FFA116] hover:text-black border border-[#FFA116]/30 transition-all shadow-sm"
+              >
+                <span>View Profile</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+
+            {/* Quick Hero Banner */}
+            <div className="grid grid-cols-2 gap-3 mb-6 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <div>
+                <span className="text-[11px] font-mono text-white/40 uppercase block">Total Solved</span>
+                <div className="flex items-baseline gap-1 mt-1">
+                  <span className="text-3xl font-display font-bold text-[#FFA116]">309</span>
+                  <span className="text-xs text-white/40 font-mono">/ 4082</span>
+                </div>
+                <span className="text-[10px] text-white/40 font-mono">9 Attempting</span>
+              </div>
+              <div className="border-l border-white/10 pl-4">
+                <span className="text-[11px] font-mono text-white/40 uppercase block">Contest Rating</span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="text-3xl font-display font-bold text-white">1,818</span>
+                  <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">Top 7.63%</span>
+                </div>
+                <span className="text-[10px] text-white/40 font-mono">Rank: 66,353 / 888,637</span>
+              </div>
+            </div>
+
+            {/* Interactive Tab Switcher */}
+            <div className="flex gap-2 p-1 bg-white/5 rounded-xl mb-6">
+              <button
+                onClick={() => setActiveTabLC('problems')}
+                className={`flex-1 py-2 text-xs font-medium rounded-lg transition-all ${
+                  activeTabLC === 'problems'
+                    ? 'bg-[#FFA116] text-black font-bold shadow-md'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                Problems Breakdown
+              </button>
+              <button
+                onClick={() => setActiveTabLC('contest')}
+                className={`flex-1 py-2 text-xs font-medium rounded-lg transition-all ${
+                  activeTabLC === 'contest'
+                    ? 'bg-[#FFA116] text-black font-bold shadow-md'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                Contests & Badges
+              </button>
+            </div>
+
+            {/* Tab Content */}
+            <div className="flex-grow">
+              {activeTabLC === 'problems' ? (
+                <motion.div
+                  key="lc-problems"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-4"
+                >
+                  {/* Difficulty Progress Bars */}
+                  <div className="space-y-3">
+                    <div>
+                      <div className="flex justify-between text-xs mb-1">
+                        <span className="font-semibold text-emerald-400">Easy</span>
+                        <span className="font-mono text-white/80">104 <span className="text-white/40">/ 971</span></span>
+                      </div>
+                      <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(104 / 971) * 100}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
+                          className="h-full bg-emerald-400 rounded-full"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-xs mb-1">
+                        <span className="font-semibold text-amber-400">Medium</span>
+                        <span className="font-mono text-white/80">167 <span className="text-white/40">/ 2128</span></span>
+                      </div>
+                      <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(167 / 2128) * 100}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
+                          className="h-full bg-amber-400 rounded-full"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-xs mb-1">
+                        <span className="font-semibold text-rose-400">Hard</span>
+                        <span className="font-mono text-white/80">38 <span className="text-white/40">/ 983</span></span>
+                      </div>
+                      <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(38 / 983) * 100}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
+                          className="h-full bg-rose-400 rounded-full"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Languages */}
+                  <div className="pt-4 border-t border-white/10">
+                    <span className="text-[11px] font-mono text-white/40 uppercase block mb-2">Languages Used</span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-xs font-mono text-white/80 flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-blue-400" />
+                        C++ <strong className="text-white">204 solved</strong>
+                      </span>
+                      <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-xs font-mono text-white/80 flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-orange-400" />
+                        Java <strong className="text-white">136 solved</strong>
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="lc-contest"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-4"
+                >
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                      <div className="flex items-center gap-2 text-[#FFA116] mb-1">
+                        <Trophy size={16} />
+                        <span className="text-xs font-medium">Contests</span>
+                      </div>
+                      <p className="text-xl font-bold font-display">4 Attended</p>
+                      <p className="text-[10px] text-white/40 font-mono">Active competitive rating</p>
+                    </div>
+
+                    <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                      <div className="flex items-center gap-2 text-emerald-400 mb-1">
+                        <Sparkles size={16} />
+                        <span className="text-xs font-medium">Badges</span>
+                      </div>
+                      <p className="text-xl font-bold font-display">3 Badges</p>
+                      <p className="text-[10px] text-emerald-400 font-mono">100 Days Badge 2026</p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-white/5 rounded-xl border border-white/5 flex items-center justify-between">
+                    <div>
+                      <span className="text-xs text-white/40 block">Annual Activity</span>
+                      <span className="text-base font-bold text-white">380 Submissions</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs text-white/40 block">Total Active Days</span>
+                      <span className="text-base font-mono font-bold text-[#FFA116]">141 Days</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs text-white/40 block">Max Streak</span>
+                      <span className="text-base font-mono font-bold text-emerald-400">15 Days</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* GeeksforGeeks Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="glass-card p-6 md:p-8 relative overflow-hidden group hover:border-[#2F8D46]/40 transition-all flex flex-col"
+          >
+            {/* Top Color Accent */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#2F8D46]" />
+            <div className="absolute -top-24 -right-24 w-60 h-60 bg-[#2F8D46]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#2F8D46]/15 transition-all" />
+
+            {/* Header: Platform & External Link */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#2F8D46]/10 border border-[#2F8D46]/20 flex items-center justify-center font-bold text-[#2F8D46] text-xl shadow-inner">
+                  GFG
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-2xl font-bold text-white">GeeksforGeeks</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-[#2F8D46]/15 text-emerald-400 font-mono font-medium">@taniabhat2017</span>
+                  </div>
+                  <p className="text-xs text-white/40 font-mono mt-0.5">LPU Jalandhar</p>
+                </div>
+              </div>
+
+              <a
+                href="https://www.geeksforgeeks.org/profile/taniabhat2017?tab=activity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold bg-[#2F8D46]/10 hover:bg-[#2F8D46] text-emerald-400 hover:text-white border border-[#2F8D46]/30 transition-all shadow-sm"
+              >
+                <span>View Profile</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+
+            {/* Quick Hero Banner */}
+            <div className="grid grid-cols-2 gap-3 mb-6 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <div>
+                <span className="text-[11px] font-mono text-white/40 uppercase block">Coding Score</span>
+                <div className="flex items-baseline gap-1 mt-1">
+                  <span className="text-3xl font-display font-bold text-emerald-400">174</span>
+                </div>
+                <span className="text-[10px] text-white/40 font-mono">Overall Score</span>
+              </div>
+              <div className="border-l border-white/10 pl-4">
+                <span className="text-[11px] font-mono text-white/40 uppercase block">Problems Solved</span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="text-3xl font-display font-bold text-white">58</span>
+                </div>
+                <span className="text-[10px] text-white/40 font-mono">Institute Rank: #7970</span>
+              </div>
+            </div>
+
+            {/* Interactive Tab Switcher */}
+            <div className="flex gap-2 p-1 bg-white/5 rounded-xl mb-6">
+              <button
+                onClick={() => setActiveTabGFG('problems')}
+                className={`flex-1 py-2 text-xs font-medium rounded-lg transition-all ${
+                  activeTabGFG === 'problems'
+                    ? 'bg-[#2F8D46] text-white font-bold shadow-md'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                Problems Overview
+              </button>
+              <button
+                onClick={() => setActiveTabGFG('rank')}
+                className={`flex-1 py-2 text-xs font-medium rounded-lg transition-all ${
+                  activeTabGFG === 'rank'
+                    ? 'bg-[#2F8D46] text-white font-bold shadow-md'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                Rank & Activity
+              </button>
+            </div>
+
+            {/* Tab Content */}
+            <div className="flex-grow">
+              {activeTabGFG === 'problems' ? (
+                <motion.div
+                  key="gfg-problems"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-3"
+                >
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-semibold text-amber-400">Medium</span>
+                      <span className="font-mono text-white/80">25 problems</span>
+                    </div>
+                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(25 / 58) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="h-full bg-amber-400 rounded-full"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-semibold text-emerald-400">Easy</span>
+                      <span className="font-mono text-white/80">23 problems</span>
+                    </div>
+                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(23 / 58) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="h-full bg-emerald-400 rounded-full"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-semibold text-cyan-400">Basic</span>
+                      <span className="font-mono text-white/80">8 problems</span>
+                    </div>
+                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(8 / 58) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="h-full bg-cyan-400 rounded-full"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-semibold text-rose-400">Hard</span>
+                      <span className="font-mono text-white/80">2 problems</span>
+                    </div>
+                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(2 / 58) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="h-full bg-rose-400 rounded-full"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="gfg-rank"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-4"
+                >
+                  <div className="p-4 bg-white/5 rounded-xl border border-white/5">
+                    <span className="text-xs text-white/40 uppercase font-mono block mb-1">University Standing</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-bold text-white">Lovely Professional University</span>
+                      <span className="text-base font-mono font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">Rank #7970</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                      <div className="flex items-center gap-2 text-amber-400 mb-1">
+                        <Flame size={16} />
+                        <span className="text-xs font-medium">POTD Streak</span>
+                      </div>
+                      <p className="text-lg font-bold font-display">Active Tracker</p>
+                      <p className="text-[10px] text-white/40 font-mono">Daily problem solving</p>
+                    </div>
+
+                    <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                      <div className="flex items-center gap-2 text-cyan-400 mb-1">
+                        <CheckCircle2 size={16} />
+                        <span className="text-xs font-medium">Accuracy</span>
+                      </div>
+                      <p className="text-lg font-bold font-display">58 Solved</p>
+                      <p className="text-[10px] text-white/40 font-mono">Across 4 difficulties</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -756,28 +1081,20 @@ const CodingProfiles = () => {
 const Certificates = () => {
   const certificates = [
     {
-      title: "Artificial Intelligence Fundamentals",
-      org: "IBM SkillsBuild",
-      date: "Sep 2025",
-      link: "https://www.linkedin.com/posts/taniabhatt_ibm-skillsbuild-activity-7376636093707784192-qERQ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
-      icon: BrainCircuit,
+      title: "AWS Cloud Practitioner Essentials",
+      org: "Amazon Web Services",
+      date: "Jun 2026",
+      link: "https://www.linkedin.com/feed/update/urn:li:activity:7474880682662719488/",
+      icon: Cpu,
       textColor: "text-accent-primary"
     },
     {
-      title: "Data Science Professional",
-      org: "Oracle",
-      date: "Sep 2025",
-      link: "https://www.linkedin.com/posts/taniabhatt_data-science-professional-activity-7370844615928885248-3LEj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
-      icon: Database,
+      title: "Learning Basic ABAP Programming",
+      org: "SAP",
+      date: "Jun 2026",
+      link: "https://www.linkedin.com/feed/update/urn:li:activity:7474879950735499264/",
+      icon: Terminal,
       textColor: "text-accent-secondary"
-    },
-    {
-      title: "Robotics Process Automation",
-      org: "Infosys Springboard",
-      date: "Jun 2025",
-      link: "https://www.linkedin.com/posts/taniabhatt_infosys-springboard-virtualinternship-activity-7368026757502861313-e2_D/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEdF_dwBFSt9O7tbuQelfzYn2b526OcslfQ",
-      icon: Cpu,
-      textColor: "text-accent-cyan"
     }
   ];
 
@@ -789,7 +1106,7 @@ const Certificates = () => {
           <p className="text-white/50 max-w-xl mx-auto">Industry-recognized certifications validating my expertise.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {certificates.map((cert, i) => (
             <motion.div
               key={cert.title}
@@ -848,7 +1165,7 @@ const Education = () => {
                 <p className="text-accent-primary font-medium">Lovely Professional University</p>
               </div>
               <div className="text-right">
-                <span className="px-4 py-1 bg-accent-primary/20 rounded-full text-sm font-bold text-accent-primary">CGPA: 8.57/10</span>
+                <span className="px-4 py-1 bg-accent-primary/20 rounded-full text-sm font-bold text-accent-primary">CGPA: 8.62/10</span>
               </div>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-white/10">
