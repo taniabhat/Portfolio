@@ -339,6 +339,21 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "ResearchOS",
+      tagline: "Autonomous AI Research Paper Generation System",
+      description: "An autonomous AI research paper generation system powered by a multi-agent LangGraph pipeline, multimodal RAG, and asynchronous orchestration.",
+      tech: ["Python", "FastAPI", "LangGraph", "PostgreSQL", "Qdrant", "Neo4j", "Redis", "Celery", "Docker", "GROBID", "PaddleOCR", "RAG"],
+      details: [
+        "Built a LangGraph multi-agent pipeline coordinating 8 agents across literature discovery, gap analysis, and peer review, cutting research effort by ~70%.",
+        "Developed a multimodal RAG engine with Qdrant vector search and Neo4j knowledge graph to extract structured content from academic figures, tables, and equations.",
+        "Deployed FastAPI, Celery, Redis on Docker for async orchestration, enabling IEEE-compliant PDF generation end-to-end from a single user prompt."
+      ],
+      image: "/researchos.png",
+      color: "accent-primary",
+      date: "May 2026",
+      github: "https://github.com/taniabhat/Research-OS-Final"
+    },
+    {
       title: "Unsupervised Waste Resource Loop Management System",
       tagline: "Self-Improving Resource Cycle System",
       description: "An unsupervised learning-based system to analyze waste patterns and convert waste into reusable resource cycles.",
@@ -350,7 +365,7 @@ const Projects = () => {
       ],
       image: "/uwrms_dashboard.png",
       color: "accent-cyan",
-      date: "Mar 2026-Present",
+      date: "Apr 2026",
       github: "https://github.com/taniabhat/Circular-Waste-Optimization/tree/main/uwrms-dashboard"
     },
     {
@@ -382,37 +397,8 @@ const Projects = () => {
       color: "accent-primary",
       date: "Dec 2025",
       github: "https://github.com/taniabhat/Karshika-Sakhi-"
-    },
-    {
-      title: "WasteNot",
-      tagline: "Smart Kitchen Assistant",
-      description: "An intelligent app that tracks food inventory using OCR, provides expiry alerts, and offers insights to reduce household waste.",
-      tech: ["React Native (Expo SDK 54)", "Firebase", "Tesseract.js", "Spoonacular API"],
-      details: [
-        "Built a smart kitchen app that tracks ingredient expiry dates, sends automated alerts, and helps users prevent food waste.",
-        "Implemented OCR-based ingredient scanning and real-time recipe recommendations using Tesseract.js and Spoonacular API.",
-        "Integrated Firebase Auth & Firestore for secure user data, pantry storage, and personalized grocery planning."
-      ],
-      image: "https://i.ibb.co/zT0XzF46/Waste-Not.jpg",
-      color: "accent-secondary",
-      date: "Dec 2025",
-      github: "https://github.com/taniabhat/WasteNot"
-    },
-    {
-      title: "Student Management System",
-      tagline: "Python + SQL System",
-      description: "A robust backend system for educational institutions to manage student data efficiently with complex querying capabilities.",
-      tech: ["Python", "SQL"],
-      details: [
-        "Built a web-based Student Management System using Python, MySQL, and SQLite3 to store, update, and manage student information in an organized manner.",
-        "Designed the system to simplify student record handling and provide an easy-to-use interface for teachers or admins.",
-        "Implemented automated result generation and printing features, improving data accuracy and reducing manual workload."
-      ],
-      image: "https://i.ibb.co/zTHspNjt/student-management-system.jpg",
-      color: "accent-cyan",
-      date: "Feb 2023",
-      github: "https://github.com/taniabhat/Student-Management-System"
     }
+
   ];
 
   return (
